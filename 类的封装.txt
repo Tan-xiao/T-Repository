@@ -1,0 +1,62 @@
+#include<iostream>
+using namespace std;
+class MyPoint {
+public:
+	void setPoint(int _x1, int _y1) {
+		x1 = _x1;
+		y1 = _y1;
+
+	}
+	int getX1() {
+		return x1;
+	}
+	int getY1() {
+		return y1;
+	}
+private:
+	int x1;
+	int y1;
+};
+class AdvCircle {
+public: 
+	void setCircle(int _x0, int _y0, int _r0) {
+		x0 = _x0;
+		y0 = _y0;
+		r0 = _r0;
+	}
+public:
+	int judge(MyPoint &tmp) {
+		int dd = (tmp.getX1() - x0)*(tmp.getX1() - x0) + (tmp.getY1() - y0)*(tmp.getY1() - y0);
+		if (dd <= r0*r0) {
+			return 1;
+		}
+		else {
+			return 0;
+		}
+	}
+private:
+		int x0;
+		int y0;
+		int r0;
+};
+
+void main() {
+		AdvCircle c1;
+		MyPoint tmp;
+		c1.setCircle(2, 3, 3);
+		tmp.setPoint(7, 7);
+		int tag = c1.judge(tmp);
+		if (tag == 1) {
+			cout << "点在圆内哦！" << endl;
+		}
+		else
+			cout << "点不在圆内哟！" << endl;
+		system("pause");
+
+}
+
+
+
+
+
+
